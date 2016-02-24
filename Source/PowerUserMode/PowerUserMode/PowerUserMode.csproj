@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAppSettings.cs" />
+    <Compile Include="IPowerConfiguration.cs" />
+    <Compile Include="IPowerConfigurationEditor.cs" />
     <Compile Include="PowerConfiguration.cs" />
     <Compile Include="PowerSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

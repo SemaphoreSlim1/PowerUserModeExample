@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PowerUserMode
 {
     /// <summary>
     /// A collection of settings for power user mode
     /// </summary>
-    public class PowerConfiguration : INotifyPropertyChanged
+    public class PowerConfiguration : IPowerConfiguration, IPowerConfigurationEditor
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private readonly IAppSettings appSettings;

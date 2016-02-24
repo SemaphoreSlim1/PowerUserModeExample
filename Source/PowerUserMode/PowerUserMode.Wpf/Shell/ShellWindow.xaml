@@ -1,0 +1,21 @@
+﻿<Window x:Class="PowerUserMode.Wpf.Shell.ShellWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PowerUserMode.Wpf.Shell"
+        xmlns:app="clr-namespace:PowerUserMode.Wpf"
+         xmlns:prism="http://prismlibrary.com/"
+        xmlns:designTime="clr-namespace:PowerUserMode.Wpf.Shell.DesignTime"
+        mc:Ignorable="d"
+        Title="ShellWindow" Height="300" Width="300"
+        d:DataContext="{d:DesignInstance Type=designTime:ShellViewModel, IsDesignTimeCreatable=True}">
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Options" Command="{Binding OptionsCommand}" />
+            </MenuItem>
+        </Menu>
+        <ContentControl prism:RegionManager.RegionName="{x:Static app:KnownRegions.MainWindow}" />
+    </DockPanel>
+</Window>
