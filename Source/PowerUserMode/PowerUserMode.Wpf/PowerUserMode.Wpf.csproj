@@ -85,7 +85,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BooleanToVisibilityConverter.cs" />
     <Compile Include="Options\DesignTime\OptionsViewModel.cs" />
     <Compile Include="PowerOptions\DesignTime\PowerSettingsViewModel.cs" />
     <Compile Include="PowerOptions\IPowerSettingsViewModel.cs" />

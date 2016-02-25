@@ -12,8 +12,7 @@
         d:DataContext="{d:DesignInstance Type=designTime:ShellViewModel, IsDesignTimeCreatable=True}">
     <Window.Resources>
         <ResourceDictionary>
-            <app:BooleanToVisibilityConverter x:Key="boolToVis"  />
-            <app:BooleanToVisibilityConverter x:Key="invertedBoolToVis" InvertBoundValue="True" />
+            <BooleanToVisibilityConverter x:Key="boolToVis"  />
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel LastChildFill="True">
