@@ -44,8 +44,7 @@ namespace PowerUserMode.Wpf
 
             //power settings view
             Container.RegisterType<PowerSettingsView>(KnownViews.PowerSettings);
-            Container.RegisterType<IPowerSettingsViewModel, PowerSettingsViewModel>();
-            
+            Container.RegisterType<IPowerSettingsViewModel, PowerSettingsViewModel>();            
         }
 
         protected override void InitializeModules()
