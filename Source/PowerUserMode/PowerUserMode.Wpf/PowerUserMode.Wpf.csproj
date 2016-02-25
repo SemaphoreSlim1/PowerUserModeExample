@@ -85,7 +85,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BooleanToVisibilityConverter.cs" />
     <Compile Include="Options\DesignTime\OptionsViewModel.cs" />
+    <Compile Include="PowerOptions\DesignTime\PowerSettingsViewModel.cs" />
+    <Compile Include="PowerOptions\IPowerSettingsViewModel.cs" />
+    <Compile Include="PowerOptions\PowerSettingsView.xaml.cs">
+      <DependentUpon>PowerSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PowerOptions\PowerSettingsViewModel.cs" />
     <Compile Include="Shell\DesignTime\ShellViewModel.cs" />
     <Compile Include="Shell\IShellViewModel.cs" />
     <Compile Include="Shell\ShellViewModel.cs" />
@@ -112,6 +119,10 @@
     </Compile>
     <Compile Include="Landing\LandingViewModel.cs" />
     <Page Include="Options\OptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PowerOptions\PowerSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,9 +165,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PowerOptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\PowerUserMode\PowerUserMode.csproj">
       <Project>{da14c4ed-275b-41c8-8491-2bd4af439da2}</Project>

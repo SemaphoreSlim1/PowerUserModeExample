@@ -28,10 +28,13 @@ namespace PowerUserMode.Wpf.Options
 
         private void PowerConfig_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName != PowerSetting.ShowExtendedOptions.ToString())
-            { return; } //a power config option changed, but not one we care about
-
-            RepopulateOptions();
+            //something in power user mode switched
+            //only repopulate if its something we care about
+            if(e.PropertyName == "IsEnabled" || e.PropertyName == PowerSetting.ShowExtendedOptions.ToString())
+            {
+                RepopulateOptions();
+            }
+            
         }
 
         private void RepopulateOptions()

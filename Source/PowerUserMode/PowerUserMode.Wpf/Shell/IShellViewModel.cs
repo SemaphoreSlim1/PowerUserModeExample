@@ -4,6 +4,12 @@ namespace PowerUserMode.Wpf.Shell
 {
     public interface IShellViewModel
     {
-        ICommand OptionsCommand { get; }
+        ICommand ApplicationOptionsCommand { get; }
+
+        ICommand PowerUserOptionsCommand { get; }
+
+        ICommand HomeCommand { get; }
+
+        bool PowerSettingsEnabled { get; }
     }
 }

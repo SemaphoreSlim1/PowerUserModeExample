@@ -10,12 +10,29 @@
         mc:Ignorable="d"
         Title="ShellWindow" Height="300" Width="300"
         d:DataContext="{d:DesignInstance Type=designTime:ShellViewModel, IsDesignTimeCreatable=True}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <app:BooleanToVisibilityConverter x:Key="boolToVis"  />
+            <app:BooleanToVisibilityConverter x:Key="invertedBoolToVis" InvertBoundValue="True" />
+        </ResourceDictionary>
+    </Window.Resources>
     <DockPanel LastChildFill="True">
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="Options" Command="{Binding OptionsCommand}" />
-            </MenuItem>
-        </Menu>
+        <Grid DockPanel.Dock="Top">
+            <Menu>
+                <MenuItem Header="File">
+                    <MenuItem Header="Home" Command="{Binding HomeCommand}" />
+                    <MenuItem Header="Application Options" Command="{Binding ApplicationOptionsCommand}" />
+                </MenuItem>
+                <MenuItem Header="Power User Mode" >
+                    <MenuItem Header="Enabled" IsCheckable="True" IsChecked="{Binding PowerSettingsEnabled}" />
+                    <MenuItem Header="Power User Options" Command="{Binding PowerUserOptionsCommand}" />
+                </MenuItem>
+            </Menu>
+            <TextBlock Text="Power User Mode On" 
+                       HorizontalAlignment="Right" Foreground="Green" 
+                       Margin="0,0,5,0"
+                       Visibility="{Binding PowerSettingsEnabled, Converter={StaticResource boolToVis}}"  />
+        </Grid>
         <ContentControl prism:RegionManager.RegionName="{x:Static app:KnownRegions.MainWindow}" />
     </DockPanel>
 </Window>

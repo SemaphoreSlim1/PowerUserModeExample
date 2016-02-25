@@ -5,6 +5,7 @@ using PowerUserMode.Wpf.Options;
 using PowerUserMode.Wpf.Landing;
 using Prism.Regions;
 using PowerUserMode.Wpf.Shell;
+using PowerUserMode.Wpf.PowerOptions;
 
 namespace PowerUserMode.Wpf
 {
@@ -36,11 +37,14 @@ namespace PowerUserMode.Wpf
             //landing view
             Container.RegisterType<LandingView>(KnownViews.Landing);
             Container.RegisterType<ILandingViewModel, LandingViewModel>();
-
-
-            //options view
+            
+            //application options view
             Container.RegisterType<OptionsView>(KnownViews.Options);
             Container.RegisterType<IOptionsViewModel, OptionsViewModel>();
+
+            //power settings view
+            Container.RegisterType<PowerSettingsView>(KnownViews.PowerSettings);
+            Container.RegisterType<IPowerSettingsViewModel, PowerSettingsViewModel>();
             
         }
 
@@ -52,6 +56,7 @@ namespace PowerUserMode.Wpf
 
             regionManager.RegisterViewWithRegion(KnownRegions.MainWindow, typeof(OptionsView));
             regionManager.RegisterViewWithRegion(KnownRegions.MainWindow, typeof(LandingView));
+            regionManager.RegisterViewWithRegion(KnownRegions.MainWindow, typeof(PowerSettingsView));
 
             regionManager.RequestNavigate(KnownRegions.MainWindow, KnownViews.Landing);
         }

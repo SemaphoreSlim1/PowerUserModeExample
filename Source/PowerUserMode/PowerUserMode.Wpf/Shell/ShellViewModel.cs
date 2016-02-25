@@ -1,37 +1,68 @@
 ﻿using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Regions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace PowerUserMode.Wpf.Shell
 {
-    public class ShellViewModel : IShellViewModel
+    public class ShellViewModel : BindableBase, IShellViewModel
     {
-        private DelegateCommand optionsCommand;
+        private DelegateCommand applicationOptionsCommand;
+        private DelegateCommand powerUserOptionsCommand;
+        private DelegateCommand homeCommand;
+
+        private IPowerConfigurationEditor powerSettingsEditor;
+
         private IRegionManager regionManager;
 
-        public ICommand OptionsCommand
+        public ICommand ApplicationOptionsCommand
         {
-            get { return optionsCommand; }
+            get { return applicationOptionsCommand; }
         }
 
-        public ShellViewModel(IRegionManager regionManager)
+        public ICommand PowerUserOptionsCommand
         {
-            optionsCommand = new DelegateCommand(OptionsCommand_Execute);
+            get { return powerUserOptionsCommand; }
+        }
+
+        public ICommand HomeCommand
+        {
+            get { return homeCommand; }
+        }
+        
+        public bool PowerSettingsEnabled
+        {
+            get { return powerSettingsEditor.IsEnabled; }
+            set
+            {
+                powerSettingsEditor.IsEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ShellViewModel(IRegionManager regionManager, IPowerConfigurationEditor powerSettingsEditor)
+        {
+            applicationOptionsCommand = new DelegateCommand(ApplicationOptionsCommand_Execute);
+            powerUserOptionsCommand = new DelegateCommand(PowerUserOptionsCommand_Execute);
+            homeCommand = new DelegateCommand(HomeCommand_Execute);
+
             this.regionManager = regionManager;
+            this.powerSettingsEditor = powerSettingsEditor;
         }
 
-        private void OptionsCommand_Execute()
+        private void ApplicationOptionsCommand_Execute()
         {
            regionManager.RequestNavigate(KnownRegions.MainWindow, KnownViews.Options);
-
         }
 
+        private void PowerUserOptionsCommand_Execute()
+        {
+            regionManager.RequestNavigate(KnownRegions.MainWindow, KnownViews.PowerSettings);
+        }
         
-
+        private void HomeCommand_Execute()
+        {
+            regionManager.RequestNavigate(KnownRegions.MainWindow, KnownViews.Landing);
+        }            
     }
 }

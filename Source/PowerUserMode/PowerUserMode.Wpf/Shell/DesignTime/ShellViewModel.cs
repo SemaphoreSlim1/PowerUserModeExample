@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace PowerUserMode.Wpf.Shell.DesignTime
 {
     public class ShellViewModel : IShellViewModel
     {
-        public ICommand OptionsCommand { get; set; }
+        public ICommand ApplicationOptionsCommand { get; set; }
+
+        public ICommand PowerUserOptionsCommand { get; set; }
+
+        public ICommand HomeCommand { get; set; }
+
+        public bool PowerSettingsEnabled { get; set; }
+
+        public ShellViewModel()
+        {
+            PowerSettingsEnabled = true;
+        }
     }
 }

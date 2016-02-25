@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="PowerUserMode.Wpf.PowerOptions.PowerSettingsView"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PowerUserMode.Wpf.PowerOptions"
+             xmlns:designTime="clr-namespace:PowerUserMode.Wpf.PowerOptions.DesignTime"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500"
+             d:DataContext="{d:DesignInstance Type=designTime:PowerSettingsViewModel, IsDesignTimeCreatable=True}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="TextBlock" x:Key="Header">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+            <Style TargetType="TextBlock" x:Key="OptionExplanation">
+                <Setter Property="Margin" Value="20,0,0,10" />
+                <Setter Property="FontStyle" Value="Italic" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Power User Mode Options" FontWeight="Bold" Style="{StaticResource Header}" />
+            <TextBlock Text="Part of being a power user is getting to define what it means to be a power user!" 
+                       Style="{StaticResource Header}"
+                       Margin="0,0,0,10"/>
+
+            <TextBlock Text="Use the following options when power user mode is enabled:" 
+                       FontWeight="DemiBold"
+                       Margin="0,0,0,10"/>
+
+            <CheckBox Content="Auto Next"  IsChecked="{Binding AutoNextSubscribed}" />
+            <TextBlock Text="Automatically advances to the next screen upon providing a response" 
+                       Style="{StaticResource OptionExplanation}"/>
+
+            <CheckBox Content="Show Expanded Options" IsChecked="{Binding ShowExtendedOptionsSubscribed}" />
+            <TextBlock Text="Shows an expanded list of options in the app options screen"
+                       Style="{StaticResource OptionExplanation}"/>
+
+            <CheckBox Content="Suppress Warning Dialogs" IsChecked="{Binding SuppressWarningsSubscribed}" />
+            <TextBlock Text="Performs validation in the background ONLY. Warning dialogs are will no longer be shown." 
+                       Style="{StaticResource OptionExplanation}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

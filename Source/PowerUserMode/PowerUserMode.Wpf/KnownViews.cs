@@ -11,5 +11,7 @@ namespace PowerUserMode.Wpf
         public static string Landing { get { return "Landing"; } }
 
         public static string Options { get { return "Options"; } }
+
+        public static string PowerSettings { get { return "PowerSettings"; } }
     }
 }

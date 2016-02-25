@@ -10,14 +10,17 @@
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignInstance Type=designTime:OptionsViewModel, IsDesignTimeCreatable=True}">
     <Grid>
-        <ItemsControl ItemsSource="{Binding Options}" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayText}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Application Options" Margin="0,0,0,10" />
+            <ItemsControl ItemsSource="{Binding Options}" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayText}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
     </Grid>
 </UserControl>
