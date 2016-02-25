@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 
@@ -9,9 +10,26 @@ namespace PowerUserMode.Wpf
     /// </summary>
     public class PowerAppSettings : IAppSettings
     {
-        public bool GetIsEnabled(PowerSetting setting)
+        private readonly IDictionary<string, bool> settings;
+
+        public PowerAppSettings()
         {
-            var key = GenerateEnabledKey(setting);
+            //read in from the file
+            settings = new Dictionary<string, bool>();
+            foreach(var key in ConfigurationManager.AppSettings.AllKeys)
+            {
+                var boolValue = false;
+                var rawSettingValue = ConfigurationManager.AppSettings[key];
+                if(bool.TryParse(rawSettingValue, out boolValue))
+                {
+                    settings[key] = boolValue;
+                }                
+            }
+        }
+
+        public bool GetIsEnabled()
+        {
+            var key = "PowerUser.IsEnabled";
             return ReadValue(key);
         }
 
@@ -21,9 +39,9 @@ namespace PowerUserMode.Wpf
             return ReadValue(key);
         }
 
-        public void SetIsEnabled(PowerSetting setting, bool value)
+        public void SetIsEnabled(bool value)
         {
-            var key = GenerateEnabledKey(setting);
+            var key = "PowerUser.IsEnabled";
             WriteValue(key, value);
         }
 
@@ -31,17 +49,7 @@ namespace PowerUserMode.Wpf
         {
             var key = GenerateSubscriptionKey(setting);
             WriteValue(key, value);
-        }
-
-        /// <summary>
-        /// Generate the settings key used for determining if a <see cref="PowerSetting"/> is enabled.
-        /// </summary>
-        /// <param name="setting">The power setting</param>
-        /// <returns>The configuration key for the power setting</returns>
-        private string GenerateEnabledKey(PowerSetting setting)
-        {
-           return "PowerUser." + setting.ToString() + ".IsEnabled";
-        }
+        }        
 
         /// <summary>
         /// Generates the settings key used for determining if a <see cref="PowerSetting"/> is subscribed
@@ -55,26 +63,12 @@ namespace PowerUserMode.Wpf
 
         private bool ReadValue(string key)
         {
-            var value = false;
-
-            if (ConfigurationManager.AppSettings.AllKeys.Contains(key))
-            {
-                var settingValue = ConfigurationManager.AppSettings[key];
-
-                if (Boolean.TryParse(settingValue, out value) == false)
-                {
-                    //a value was present for this key, but it did not convert to a boolean
-                    value = false;
-                }
-            }
-
-            return value;
+            return settings[key];
         }
 
         private void WriteValue(string key, bool value)
         {
-            ConfigurationManager.AppSettings.Remove(key);
-            ConfigurationManager.AppSettings.Add(key, value.ToString());
+            settings[key] = value;
         }
     }
 }

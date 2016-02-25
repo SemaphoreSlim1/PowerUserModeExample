@@ -36,7 +36,7 @@ namespace PowerUserMode
                     var allSettings = Enum.GetValues(typeof(PowerSetting)).Cast<PowerSetting>();
                     foreach(var setting in allSettings)
                     {
-                        SetPropertyEnabled(setting,value);
+                        OnPropertyChanged(setting.ToString());
                     }
                 }
             }
@@ -95,7 +95,7 @@ namespace PowerUserMode
         public void Subscribe(PowerSetting setting)
         {
             appSettings.SetIsSubscribed(setting, true);
-            SetPropertyEnabled(setting, IsEnabled);
+            OnPropertyChanged(setting.ToString());
         }
 
         /// <summary>
@@ -104,46 +104,30 @@ namespace PowerUserMode
         /// <param name="setting">The power setting to opt-out of</param>
         public void Unsubscribe(PowerSetting setting)
         {
-            //turn the power setting off, THEN unsubscribe
-            SetPropertyEnabled(setting, false);
-            appSettings.SetIsSubscribed(setting, false);            
+            appSettings.SetIsSubscribed(setting, false);
+            OnPropertyChanged(setting.ToString());
         }
 
         /// <summary>
         /// Gets a <see cref="PowerSetting"/>'s enabled state, provided that it is currently being subscribed to
+        /// and power user mode is enabled
         /// </summary>
         /// <param name="setting">The power setting</param>
         /// <returns>Whether the <see cref="PowerSetting"/> is currently enabled</returns>
         private bool GetPropertyEnabled(PowerSetting setting)
         {
+            //if the user is subscribing to the setting, then that setting is on if power user mode is on.
+            //otherwise, that setting is considered off.
             if (appSettings.GetIsSubscribed(setting))
             {
-                return appSettings.GetIsEnabled(setting);
+                return IsEnabled;
             }
             else
             {
                 return false;
             }
         }
-
-        /// <summary>
-        /// Sets a <see cref="PowerSetting"/>'s enabled state to the new value, provided that is currently being subscribed to
-        /// </summary>
-        /// <param name="setting">The power setting</param>
-        /// <param name="value">The new value</param>
-        private void SetPropertyEnabled(PowerSetting setting, bool value)
-        {
-            if (appSettings.GetIsSubscribed(setting))
-            {
-                //only set the value and raise INPC if the incoming value is different
-                var oldEnabled = appSettings.GetIsEnabled(setting);
-                if (oldEnabled != value)
-                {
-                    appSettings.SetIsEnabled(setting, value);
-                    OnPropertyChanged();
-                }
-            }
-        }
+        
 
         /// <summary>
         /// Raises the <see cref="PropertyChanged"/> event, if there are subscribers

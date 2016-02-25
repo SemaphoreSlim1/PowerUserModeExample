@@ -11,7 +11,7 @@ namespace PowerUserMode
         bool GetIsSubscribed(PowerSetting setting);
         void SetIsSubscribed(PowerSetting setting, bool value);
 
-        bool GetIsEnabled(PowerSetting setting);
-        void SetIsEnabled(PowerSetting setting, bool value);
+        bool GetIsEnabled();
+        void SetIsEnabled(bool value);
     }
 }

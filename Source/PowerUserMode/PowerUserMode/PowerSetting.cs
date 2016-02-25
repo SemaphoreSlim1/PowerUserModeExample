@@ -2,8 +2,8 @@
 {
     public enum PowerSetting
     {
-        ShowExtendedOptions,
         AutoNext,
+        ShowExtendedOptions,        
         SuppressWarnings
     }
 }
