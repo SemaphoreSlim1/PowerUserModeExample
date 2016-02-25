@@ -41,7 +41,7 @@
                        Style="{StaticResource OptionExplanation}"/>
 
             <CheckBox Content="Suppress Warning Dialogs" IsChecked="{Binding SuppressWarningsSubscribed}" />
-            <TextBlock Text="Performs validation in the background ONLY. Warning dialogs are will no longer be shown." 
+            <TextBlock Text="Performs validation in the background ONLY. Warning dialogs will no longer be shown." 
                        Style="{StaticResource OptionExplanation}"/>
         </StackPanel>
     </Grid>
