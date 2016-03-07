@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using PowerUserMode.Wpf.Common;
+using Prism.Commands;
+using Prism.Events;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -18,12 +20,18 @@ namespace PowerUserMode.Wpf.Questionaire.Shell
         private int currentQuestionIndex = 0;
 
         private readonly IRegionManager regionManager;
+        private readonly IEventAggregator eventAggregator;
+        private readonly IPowerConfiguration powerSettings;
 
-        public QuestionnaireShellViewModel(IRegionManager regionManager)
+        public QuestionnaireShellViewModel(IPowerConfiguration powerSettings, IRegionManager regionManager, IEventAggregator eventAggregator)
         {
+            this.powerSettings = powerSettings;
             this.regionManager = regionManager;
             this.AdvanceNextCommand = new DelegateCommand(AdvanceNextCommand_Execute);
             this.AdvancePreviousCommand = new DelegateCommand(AdvancePreviousCommand_Execute);
+            this.eventAggregator = eventAggregator;
+
+            eventAggregator.GetEvent<ResponseProvidedEvent>().Subscribe(ResponseProvided, ThreadOption.PublisherThread,true,filter => powerSettings.AutoNext);
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
@@ -38,6 +46,11 @@ namespace PowerUserMode.Wpf.Questionaire.Shell
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {          
+        }
+
+        private void ResponseProvided(ResponseProvidedInfo info)
+        {
+            AdvanceNextCommand_Execute();
         }
 
         private void AdvanceNextCommand_Execute()

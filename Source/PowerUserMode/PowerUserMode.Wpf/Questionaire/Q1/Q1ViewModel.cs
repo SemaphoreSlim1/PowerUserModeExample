@@ -1,5 +1,6 @@
 ﻿using PowerUserMode.Wpf.Common;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,12 +21,13 @@ namespace PowerUserMode.Wpf.Questionaire.Q1
         private IPowerConfiguration powerSettings;
 
         public ICommand OptionSelectedCommand { get; private set; }
-               
+        private IEventAggregator eventAggregator;
         
 
-        public Q1ViewModel(IPowerConfiguration powerSettings)
+        public Q1ViewModel(IPowerConfiguration powerSettings, IEventAggregator eventAggregator)
         {
             this.powerSettings = powerSettings;
+            this.eventAggregator = eventAggregator;
 
             availableOptions = new ObservableCollection<ISelectable>()
             {
@@ -70,6 +72,7 @@ namespace PowerUserMode.Wpf.Questionaire.Q1
             {
                 //do nothing, the happy path has already happened
                 changeHistory.Clear();
+                eventAggregator.GetEvent<ResponseProvidedEvent>().Publish(new ResponseProvidedInfo());
             }
             else
             {
