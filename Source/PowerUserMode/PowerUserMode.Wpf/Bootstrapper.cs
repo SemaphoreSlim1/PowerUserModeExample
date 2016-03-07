@@ -8,6 +8,8 @@ using PowerUserMode.Wpf.Shell;
 using PowerUserMode.Wpf.PowerOptions;
 using PowerUserMode.Wpf.Questionaire.Q1;
 using PowerUserMode.Wpf.Questionaire.Shell;
+using PowerUserMode.Wpf.Questionaire.Q2;
+using PowerUserMode.Wpf.Questionaire.Q3;
 
 namespace PowerUserMode.Wpf
 {
@@ -55,6 +57,12 @@ namespace PowerUserMode.Wpf
 
             Container.RegisterType<Q1View>(KnownViews.Question1);
             Container.RegisterType<IQ1ViewModel, Q1ViewModel>();
+
+            Container.RegisterType<Q2View>(KnownViews.Question2);
+            Container.RegisterType<IQ2ViewModel, Q2ViewModel>();
+
+            Container.RegisterType<Q3View>(KnownViews.Question3);
+            Container.RegisterType<IQ3ViewModel, Q3ViewModel>();
                   
         }
 
@@ -70,6 +78,8 @@ namespace PowerUserMode.Wpf
             regionManager.RegisterViewWithRegion(KnownRegions.MainWindow, typeof(QuestionnaireShellView));
 
             regionManager.RegisterViewWithRegion(KnownRegions.Questions, typeof(Q1View));
+            regionManager.RegisterViewWithRegion(KnownRegions.Questions, typeof(Q2View));
+            regionManager.RegisterViewWithRegion(KnownRegions.Questions, typeof(Q3View));
 
             regionManager.RequestNavigate(KnownRegions.MainWindow, KnownViews.Landing);
         }
