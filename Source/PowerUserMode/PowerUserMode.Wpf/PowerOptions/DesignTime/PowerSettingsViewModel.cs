@@ -6,6 +6,9 @@
 
         public bool ShowExtendedOptionsSubscribed { get; set; }
 
-        public bool SuppressWarningsSubscribed { get; set; }
+        public bool SuppressValueChangedWarningsSubscribed { get; set; }
+
+        public bool SuppressValidationWarningsSubscribed { get; set; }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace PowerUserMode.Wpf.Questionairre.Q2
+﻿namespace PowerUserMode.Wpf.Questionaire.Q2
 {
     /// <summary>
     /// Interaction logic for Q2View.xaml

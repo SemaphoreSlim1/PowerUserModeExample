@@ -1,6 +1,6 @@
 ﻿using Prism.Mvvm;
 
-namespace PowerUserMode.Wpf.Questionairre.Q2
+namespace PowerUserMode.Wpf.Questionaire.Q2
 {
     public class Q2ViewModel : BindableBase, IQ2ViewModel
     {

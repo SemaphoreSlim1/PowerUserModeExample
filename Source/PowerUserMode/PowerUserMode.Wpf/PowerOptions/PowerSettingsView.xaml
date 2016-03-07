@@ -40,7 +40,11 @@
             <TextBlock Text="Shows an expanded list of options in the app options screen"
                        Style="{StaticResource OptionExplanation}"/>
 
-            <CheckBox Content="Suppress Warning Dialogs" IsChecked="{Binding SuppressWarningsSubscribed}" />
+            <CheckBox Content="Suppress value changed warning prompts" IsChecked="{Binding SuppressValueChangedWarningsSubscribed}" />
+            <TextBlock Text="Immediately changes the value. Prompts to confirm value changes will no longer be shown."
+                       Style="{StaticResource OptionExplanation}" />
+
+            <CheckBox Content="Suppress validation warning prompts" IsChecked="{Binding SuppressValidationWarningsSubscribed}" />
             <TextBlock Text="Performs validation in the background ONLY. Warning dialogs will no longer be shown." 
                        Style="{StaticResource OptionExplanation}"/>
         </StackPanel>

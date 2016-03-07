@@ -41,5 +41,10 @@ namespace PowerUserMode.Wpf.Common
         {
             this.displayText = displayValue;
         }
+
+        public override string ToString()
+        {
+            return DisplayText + " " + IsSelected.ToString();
+        }
     }
 }

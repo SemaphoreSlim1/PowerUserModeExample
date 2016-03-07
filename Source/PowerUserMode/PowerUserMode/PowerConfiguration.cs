@@ -65,16 +65,27 @@ namespace PowerUserMode
         }
 
         /// <summary>
-        /// Gets whether warning dialog boxes will be suppressed
+        /// Gets whether or not to suppress the warning dialog box when a value is changed
+        /// </summary>
+        public bool SuppressValueChangedWarnings
+        {
+            get
+            {
+                return GetPropertyEnabled(PowerSetting.SuppressValueChangedWarnings);
+            }
+        }
+
+        /// <summary>
+        /// Gets whether validation warning dialog boxes will be suppressed
         /// </summary>
         /// <remarks>
         /// This option will not suppress validation, rather, it only suppresses the warning message
         /// </remarks>
-        public bool SuppressWarnings
+        public bool SuppressValidationWarnings
         {
             get
             {
-                return GetPropertyEnabled(PowerSetting.SuppressWarnings);
+                return GetPropertyEnabled(PowerSetting.SuppressValidationWarnings);
             }           
         }
 

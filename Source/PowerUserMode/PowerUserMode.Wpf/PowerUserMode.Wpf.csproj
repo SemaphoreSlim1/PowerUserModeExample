@@ -85,6 +85,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\ResponseProvidedEvent.cs" />
     <Compile Include="Options\DesignTime\OptionsViewModel.cs" />
     <Compile Include="PowerOptions\DesignTime\PowerSettingsViewModel.cs" />
     <Compile Include="PowerOptions\IPowerSettingsViewModel.cs" />
@@ -92,24 +93,29 @@
       <DependentUpon>PowerSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PowerOptions\PowerSettingsViewModel.cs" />
-    <Compile Include="Questionairre\Q1\DesignTime\Q1ViewModel.cs" />
-    <Compile Include="Questionairre\Q1\IQ1ViewModel.cs" />
-    <Compile Include="Questionairre\Q1\Q1View.xaml.cs">
+    <Compile Include="Questionaire\Q1\DesignTime\Q1ViewModel.cs" />
+    <Compile Include="Questionaire\Q1\IQ1ViewModel.cs" />
+    <Compile Include="Questionaire\Q1\Q1View.xaml.cs">
       <DependentUpon>Q1View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Questionairre\Q1\Q1ViewModel.cs" />
-    <Compile Include="Questionairre\Q2\DesignTime\Q2ViewModel.cs" />
-    <Compile Include="Questionairre\Q2\IQ2ViewModel.cs" />
-    <Compile Include="Questionairre\Q2\Q2View.xaml.cs">
+    <Compile Include="Questionaire\Q1\Q1ViewModel.cs" />
+    <Compile Include="Questionaire\Q2\DesignTime\Q2ViewModel.cs" />
+    <Compile Include="Questionaire\Q2\IQ2ViewModel.cs" />
+    <Compile Include="Questionaire\Q2\Q2View.xaml.cs">
       <DependentUpon>Q2View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Questionairre\Q2\Q2ViewModel.cs" />
-    <Compile Include="Questionairre\Q3\DesignTime\Q3ViewModel.cs" />
-    <Compile Include="Questionairre\Q3\IQ3ViewModel.cs" />
-    <Compile Include="Questionairre\Q3\Q3View.xaml.cs">
+    <Compile Include="Questionaire\Q2\Q2ViewModel.cs" />
+    <Compile Include="Questionaire\Q3\DesignTime\Q3ViewModel.cs" />
+    <Compile Include="Questionaire\Q3\IQ3ViewModel.cs" />
+    <Compile Include="Questionaire\Q3\Q3View.xaml.cs">
       <DependentUpon>Q3View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Questionairre\Q3\Q3ViewModel.cs" />
+    <Compile Include="Questionaire\Q3\Q3ViewModel.cs" />
+    <Compile Include="Questionaire\Shell\IQuestionnaireShellViewModel.cs" />
+    <Compile Include="Questionaire\Shell\QuestionnaireShellViewModel.cs" />
+    <Compile Include="Questionaire\Shell\QuestionnaireShellView.xaml.cs">
+      <DependentUpon>QuestionnaireShellView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shell\DesignTime\ShellViewModel.cs" />
     <Compile Include="Shell\IShellViewModel.cs" />
     <Compile Include="Shell\ShellViewModel.cs" />
@@ -143,15 +149,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Questionairre\Q1\Q1View.xaml">
+    <Page Include="Questionaire\Q1\Q1View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Questionairre\Q2\Q2View.xaml">
+    <Page Include="Questionaire\Q2\Q2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Questionairre\Q3\Q3View.xaml">
+    <Page Include="Questionaire\Q3\Q3View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Questionaire\Shell\QuestionnaireShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

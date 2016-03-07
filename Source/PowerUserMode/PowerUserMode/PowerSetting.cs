@@ -3,7 +3,8 @@
     public enum PowerSetting
     {
         AutoNext,
-        ShowExtendedOptions,        
-        SuppressWarnings
+        ShowExtendedOptions,
+        SuppressValueChangedWarnings,     
+        SuppressValidationWarnings
     }
 }

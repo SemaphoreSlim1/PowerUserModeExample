@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="PowerUserMode.Wpf.Questionaire.Q1.Q1View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PowerUserMode.Wpf.Questionaire.Q1"
+             xmlns:designTime="clr-namespace:PowerUserMode.Wpf.Questionaire.Q1.DesignTime"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance Type=designTime:Q1ViewModel, IsDesignTimeCreatable=True}">
+    <Grid>
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="This is question 1. Please select an option" Margin="0,0,0,5" />
+            <ItemsControl Name="RadioButtonItems" ItemsSource="{Binding AvailableOptions}" HorizontalAlignment="Center">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Content="{Binding DisplayText}" 
+                                     IsChecked="{Binding IsSelected}" 
+                                     GroupName="Items"
+                                     Command="{Binding ElementName=RadioButtonItems, Path=DataContext.OptionSelectedCommand}"
+                                     CommandParameter="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            
+            <TextBlock Text="Hint: Toggle Power User Mode to suppress the message box" Margin="0,20,0,0" />
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

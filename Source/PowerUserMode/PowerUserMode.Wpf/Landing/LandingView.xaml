@@ -9,6 +9,10 @@
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignInstance Type=designTime:LandingViewModel, IsDesignTimeCreatable=True}">
     <Grid>
-        <TextBlock Text="{Binding DisplayText}"  HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center">
+            <TextBlock Text="{Binding DisplayText}" />
+            <Button Content="Begin Questions" Command="{Binding BeginQuestionsCommand}"
+                    HorizontalContentAlignment="Center" Margin="0,5,0,0" Padding="5" />
+        </StackPanel>
     </Grid>
 </UserControl>

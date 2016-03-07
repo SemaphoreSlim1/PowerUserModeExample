@@ -6,6 +6,8 @@ using PowerUserMode.Wpf.Landing;
 using Prism.Regions;
 using PowerUserMode.Wpf.Shell;
 using PowerUserMode.Wpf.PowerOptions;
+using PowerUserMode.Wpf.Questionaire.Q1;
+using PowerUserMode.Wpf.Questionaire.Shell;
 
 namespace PowerUserMode.Wpf
 {
@@ -44,7 +46,16 @@ namespace PowerUserMode.Wpf
 
             //power settings view
             Container.RegisterType<PowerSettingsView>(KnownViews.PowerSettings);
-            Container.RegisterType<IPowerSettingsViewModel, PowerSettingsViewModel>();            
+            Container.RegisterType<IPowerSettingsViewModel, PowerSettingsViewModel>();
+
+
+            //register the types for the questionnaire
+            Container.RegisterType<QuestionnaireShellView>(KnownViews.QuestionnaireShell);
+            Container.RegisterType<IQuestionnaireShellViewModel, QuestionnaireShellViewModel>();
+
+            Container.RegisterType<Q1View>(KnownViews.Question1);
+            Container.RegisterType<IQ1ViewModel, Q1ViewModel>();
+                  
         }
 
         protected override void InitializeModules()
@@ -56,6 +67,9 @@ namespace PowerUserMode.Wpf
             regionManager.RegisterViewWithRegion(KnownRegions.MainWindow, typeof(OptionsView));
             regionManager.RegisterViewWithRegion(KnownRegions.MainWindow, typeof(LandingView));
             regionManager.RegisterViewWithRegion(KnownRegions.MainWindow, typeof(PowerSettingsView));
+            regionManager.RegisterViewWithRegion(KnownRegions.MainWindow, typeof(QuestionnaireShellView));
+
+            regionManager.RegisterViewWithRegion(KnownRegions.Questions, typeof(Q1View));
 
             regionManager.RequestNavigate(KnownRegions.MainWindow, KnownViews.Landing);
         }

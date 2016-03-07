@@ -1,4 +1,6 @@
-﻿namespace PowerUserMode.Wpf.Common
+﻿using System.ComponentModel;
+
+namespace PowerUserMode.Wpf.Common
 {
     public interface ISelectable<T> : ISelectable
     {
@@ -8,7 +10,7 @@
         T Value { get; }
     }
 
-    public interface ISelectable
+    public interface ISelectable : INotifyPropertyChanged
     {
         /// <summary>
         /// Gets and sets whether this item is selected

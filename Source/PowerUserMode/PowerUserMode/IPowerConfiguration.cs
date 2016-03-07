@@ -15,11 +15,16 @@ namespace PowerUserMode
         bool AutoNext { get; }
 
         /// <summary>
-        /// Gets whether warning dialog boxes will be suppressed
+        /// Gets whether or not to suppress the warning dialog when a value is changed
+        /// </summary>
+        bool SuppressValueChangedWarnings { get; }
+
+        /// <summary>
+        /// Gets whether validation warning dialog boxes will be suppressed
         /// </summary>
         /// <remarks>
         /// This option will not suppress validation, rather, it only suppresses the warning message
         /// </remarks>
-        bool SuppressWarnings { get; }
+        bool SuppressValidationWarnings { get; }
     }
 }

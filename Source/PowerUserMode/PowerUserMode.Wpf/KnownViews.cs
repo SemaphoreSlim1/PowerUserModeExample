@@ -13,5 +13,13 @@ namespace PowerUserMode.Wpf
         public static string Options { get { return "Options"; } }
 
         public static string PowerSettings { get { return "PowerSettings"; } }
+
+        public static string QuestionnaireShell { get { return "QuestionaireShell"; } }
+
+        public static string Question1 { get { return "Q1"; } }
+
+        public static string Question2 { get { return "Q2"; } }
+
+        public static string Question3 { get { return "Q3"; } }
     }
 }

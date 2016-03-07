@@ -10,6 +10,7 @@ namespace PowerUserMode.Wpf.PowerOptions
     {
         bool AutoNextSubscribed { get; set; }
         bool ShowExtendedOptionsSubscribed { get; set; }
-        bool SuppressWarningsSubscribed { get; set; }
+        bool SuppressValueChangedWarningsSubscribed { get; set; }
+        bool SuppressValidationWarningsSubscribed { get; set; }
     }
 }

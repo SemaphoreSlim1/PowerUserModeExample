@@ -26,12 +26,22 @@ namespace PowerUserMode.Wpf.PowerOptions
             }
         }
 
-        public bool SuppressWarningsSubscribed
+        public bool SuppressValueChangedWarningsSubscribed
         {
-            get { return powerSettingsEditor.IsSubscribed(PowerSetting.SuppressWarnings); }
+            get { return powerSettingsEditor.IsSubscribed(PowerSetting.SuppressValueChangedWarnings); }
             set
             {
-                SetSubscription(PowerSetting.SuppressWarnings, value);
+                SetSubscription(PowerSetting.SuppressValueChangedWarnings, value);
+                OnPropertyChanged();
+            }
+        }
+
+        public bool SuppressValidationWarningsSubscribed
+        {
+            get { return powerSettingsEditor.IsSubscribed(PowerSetting.SuppressValidationWarnings); }
+            set
+            {
+                SetSubscription(PowerSetting.SuppressValidationWarnings, value);
                 OnPropertyChanged();
             }
         }
