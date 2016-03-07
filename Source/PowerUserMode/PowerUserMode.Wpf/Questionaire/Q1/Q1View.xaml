@@ -6,11 +6,15 @@
              xmlns:local="clr-namespace:PowerUserMode.Wpf.Questionaire.Q1"
              xmlns:designTime="clr-namespace:PowerUserMode.Wpf.Questionaire.Q1.DesignTime"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="300" d:DesignWidth="330"
              d:DataContext="{d:DesignInstance Type=designTime:Q1ViewModel, IsDesignTimeCreatable=True}">
     <Grid>
         <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="This is question 1. Please select an option" Margin="0,0,0,5" />
+            <TextBlock Text="This is question 1. It shows how changing an option triggers a prompt. Please select an option" 
+                       Margin="0,0,0,5" 
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center"/>
             <ItemsControl Name="RadioButtonItems" ItemsSource="{Binding AvailableOptions}" HorizontalAlignment="Center">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -22,9 +26,7 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-            
             <TextBlock Text="Hint: Toggle Power User Mode to suppress the message box" Margin="0,20,0,0" />
-        </StackPanel>
-        
+        </StackPanel>        
     </Grid>
 </UserControl>
