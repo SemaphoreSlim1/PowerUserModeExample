@@ -12,17 +12,16 @@ namespace PowerUserMode.Wpf.Questionaire.Q1
 {
     public class Q1ViewModel : BindableBase, IQ1ViewModel
     {
-        private ObservableCollection<ISelectable> availableOptions;        
+        private ObservableCollection<ISelectable> availableOptions;
         public IEnumerable<ISelectable> AvailableOptions { get { return availableOptions; } }
 
-        private bool isUndoing = false;
         private Queue<ISelectable> changeHistory;
 
         private IPowerConfiguration powerSettings;
 
         public ICommand OptionSelectedCommand { get; private set; }
         private IEventAggregator eventAggregator;
-        
+
 
         public Q1ViewModel(IPowerConfiguration powerSettings, IEventAggregator eventAggregator)
         {
@@ -48,9 +47,6 @@ namespace PowerUserMode.Wpf.Questionaire.Q1
 
         private void Option_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if(isUndoing)
-            { return; }
-
             changeHistory.Enqueue(sender as ISelectable);
         }
 
@@ -77,16 +73,17 @@ namespace PowerUserMode.Wpf.Questionaire.Q1
             else
             {
                 //we need to undo what just happened
-                isUndoing = true;
 
-                while(changeHistory.Count > 0)
+                while (changeHistory.Count > 0)
                 {
                     var item = changeHistory.Dequeue();
+                    item.PropertyChanged -= Option_PropertyChanged; //unhook the INPC handler while we change the value
                     item.IsSelected = !item.IsSelected;
+                    item.PropertyChanged += Option_PropertyChanged; //restore the INPC handler
                 }
 
-                isUndoing = false;
+
             }
-        }        
+        }
     }
 }

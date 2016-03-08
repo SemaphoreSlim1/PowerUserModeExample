@@ -36,6 +36,7 @@ namespace PowerUserMode.Wpf.Questionaire.Shell
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
+            currentQuestionIndex = 0;
             regionManager.RequestNavigate(KnownRegions.Questions, KnownViews.Question1);
         }
 

@@ -4,9 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PowerUserMode.Wpf.Questionaire.Q2"
+             xmlns:designTime="clr-namespace:PowerUserMode.Wpf.Questionaire.Q2.DesignTime"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance Type=designTime:Q2ViewModel, IsDesignTimeCreatable=True}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
-            <TextBlock Text="Hello Question 2" />
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="This is question 2. It shows how changing an option triggers validation. Please select an option" 
+                       Margin="0,0,0,5" 
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center"/>
+            <ItemsControl Name="RadioButtonItems" ItemsSource="{Binding AvailableOptions}" HorizontalAlignment="Center">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding DisplayText}" 
+                                     IsChecked="{Binding IsSelected}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <TextBlock Text="Hint: Toggle Power User Mode to suppress the message boxes" Margin="0,20,0,0" />
+            <TextBlock Text="This question is not in a valid state" 
+                       Visibility="{Binding IsNotValid, Converter={StaticResource BoolToVis}}"
+                       Foreground="Red" Margin="0,10,0,0" />
+        </StackPanel>
     </Grid>
 </UserControl>
