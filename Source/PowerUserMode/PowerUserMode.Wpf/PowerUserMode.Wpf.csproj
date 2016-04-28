@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PowerUserMode.Wpf</RootNamespace>
     <AssemblyName>PowerUserMode.Wpf</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +36,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Activities.Extensions, Version=2.0.6.9, Culture=neutral, PublicKeyToken=23b0c89d0d5ad43f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Activities.Extensions.2.0.6.9\lib\Net45\Microsoft.Activities.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -64,6 +69,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -133,8 +139,6 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Common\ISelectable.cs" />
     <Compile Include="Common\Selectable.cs" />
-    <Compile Include="KnownRegions.cs" />
-    <Compile Include="KnownViews.cs" />
     <Compile Include="Landing\DesignTime\LandingViewModel.cs" />
     <Compile Include="Landing\ILandingViewModel.cs" />
     <Compile Include="Landing\LandingView.xaml.cs">
@@ -176,7 +180,6 @@
       <DependentUpon>OptionsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Options\OptionsViewModel.cs" />
-    <Compile Include="PowerAppSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -206,6 +209,18 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\PowerUserMode.Activities\PowerUserMode.Activities.csproj">
+      <Project>{7f5d597b-0979-41f8-8b3f-01491770d09c}</Project>
+      <Name>PowerUserMode.Activities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PowerUserMode.Core\PowerUserMode.Core.csproj">
+      <Project>{9243915E-E1ED-42BD-96FD-63933710DE6B}</Project>
+      <Name>PowerUserMode.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PowerUserMode.Workflows\PowerUserMode.Workflows.csproj">
+      <Project>{d9fac5cc-e07a-456a-817f-f38cf181adad}</Project>
+      <Name>PowerUserMode.Workflows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PowerUserMode\PowerUserMode.csproj">
       <Project>{da14c4ed-275b-41c8-8491-2bd4af439da2}</Project>
       <Name>PowerUserMode</Name>

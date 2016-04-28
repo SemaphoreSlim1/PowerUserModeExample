@@ -2,6 +2,7 @@
 using Prism.Regions;
 using System;
 using System.Windows.Input;
+using PowerUserMode.Core;
 
 namespace PowerUserMode.Wpf.Landing
 {

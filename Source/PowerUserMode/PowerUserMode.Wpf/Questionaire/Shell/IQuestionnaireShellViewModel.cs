@@ -11,5 +11,11 @@ namespace PowerUserMode.Wpf.Questionaire.Shell
     {
         ICommand AdvanceNextCommand { get; }
         ICommand AdvancePreviousCommand { get; }
+
+        string StateMachineName { get; }
+
+        string CurrentState { get; }
+
+        bool WorkflowRunning { get; }
     }
 }

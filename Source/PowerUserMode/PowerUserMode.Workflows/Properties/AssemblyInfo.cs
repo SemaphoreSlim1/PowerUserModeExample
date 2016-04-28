@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PowerUserMode")]
+[assembly: AssemblyTitle("PowerUserMode.Workflows")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PowerUserMode")]
+[assembly: AssemblyProduct("PowerUserMode.Workflows")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,8 +19,9 @@ using System.Runtime.InteropServices;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
+
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("52115f76-1752-450d-b287-bbdf2dadeee1")]
+[assembly: Guid("d9fac5cc-e07a-456a-817f-f38cf181adad")]
 
 // Version information for an assembly consists of the following four values:
 //

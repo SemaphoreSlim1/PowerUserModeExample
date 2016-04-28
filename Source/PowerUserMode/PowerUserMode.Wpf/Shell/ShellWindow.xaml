@@ -7,6 +7,7 @@
         xmlns:app="clr-namespace:PowerUserMode.Wpf"
          xmlns:prism="http://prismlibrary.com/"
         xmlns:designTime="clr-namespace:PowerUserMode.Wpf.Shell.DesignTime"
+        xmlns:core="clr-namespace:PowerUserMode.Core;assembly=PowerUserMode.Core"
         mc:Ignorable="d"
         Title="ShellWindow" Height="300" Width="300"
         d:DataContext="{d:DesignInstance Type=designTime:ShellViewModel, IsDesignTimeCreatable=True}">
@@ -32,6 +33,6 @@
                        Margin="0,0,5,0"
                        Visibility="{Binding PowerSettingsEnabled, Converter={StaticResource boolToVis}}"  />
         </Grid>
-        <ContentControl prism:RegionManager.RegionName="{x:Static app:KnownRegions.MainWindow}" />
+        <ContentControl prism:RegionManager.RegionName="{x:Static core:KnownRegions.MainWindow}" />
     </DockPanel>
 </Window>
