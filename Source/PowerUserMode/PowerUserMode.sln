@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUserMode.Wpf", "PowerUserMode.Wpf\PowerUserMode.Wpf.csproj", "{AE77755A-2688-4C86-9F94-3CC469775663}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUserMode", "PowerUserMode\PowerUserMode.csproj", "{DA14C4ED-275B-41C8-8491-2BD4AF439DA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUserMode", "PowerUserMode\PowerUserMode.csproj", "{52115F76-1752-450D-B287-BBDF2DADEEE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{AE77755A-2688-4C86-9F94-3CC469775663}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE77755A-2688-4C86-9F94-3CC469775663}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE77755A-2688-4C86-9F94-3CC469775663}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA14C4ED-275B-41C8-8491-2BD4AF439DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA14C4ED-275B-41C8-8491-2BD4AF439DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA14C4ED-275B-41C8-8491-2BD4AF439DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA14C4ED-275B-41C8-8491-2BD4AF439DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52115F76-1752-450D-B287-BBDF2DADEEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52115F76-1752-450D-B287-BBDF2DADEEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52115F76-1752-450D-B287-BBDF2DADEEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52115F76-1752-450D-B287-BBDF2DADEEE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
