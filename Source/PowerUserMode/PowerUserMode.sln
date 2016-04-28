@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUserMode.Wpf", "PowerU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUserMode", "PowerUserMode\PowerUserMode.csproj", "{52115F76-1752-450D-B287-BBDF2DADEEE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerUserMode.Core", "PowerUserMode.Core\PowerUserMode.Core.csproj", "{9243915E-E1ED-42BD-96FD-63933710DE6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{52115F76-1752-450D-B287-BBDF2DADEEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52115F76-1752-450D-B287-BBDF2DADEEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52115F76-1752-450D-B287-BBDF2DADEEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9243915E-E1ED-42BD-96FD-63933710DE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9243915E-E1ED-42BD-96FD-63933710DE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9243915E-E1ED-42BD-96FD-63933710DE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9243915E-E1ED-42BD-96FD-63933710DE6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

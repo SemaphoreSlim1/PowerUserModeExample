@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 
-namespace PowerUserMode.Wpf
+namespace PowerUserMode.Core
 {
     /// <summary>
     /// Provides read/write access to the app.config file specific to the needs of power settings

@@ -134,8 +134,6 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Common\ISelectable.cs" />
     <Compile Include="Common\Selectable.cs" />
-    <Compile Include="KnownRegions.cs" />
-    <Compile Include="KnownViews.cs" />
     <Compile Include="Landing\DesignTime\LandingViewModel.cs" />
     <Compile Include="Landing\ILandingViewModel.cs" />
     <Compile Include="Landing\LandingView.xaml.cs">
@@ -177,7 +175,6 @@
       <DependentUpon>OptionsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Options\OptionsViewModel.cs" />
-    <Compile Include="PowerAppSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -207,6 +204,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\PowerUserMode.Core\PowerUserMode.Core.csproj">
+      <Project>{9243915E-E1ED-42BD-96FD-63933710DE6B}</Project>
+      <Name>PowerUserMode.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PowerUserMode\PowerUserMode.csproj">
       <Project>{da14c4ed-275b-41c8-8491-2bd4af439da2}</Project>
       <Name>PowerUserMode</Name>

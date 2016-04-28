@@ -1,6 +1,7 @@
 ﻿using Prism.Unity;
 using Microsoft.Practices.Unity;
 using System.Windows;
+using PowerUserMode.Core;
 using PowerUserMode.Wpf.Options;
 using PowerUserMode.Wpf.Landing;
 using Prism.Regions;

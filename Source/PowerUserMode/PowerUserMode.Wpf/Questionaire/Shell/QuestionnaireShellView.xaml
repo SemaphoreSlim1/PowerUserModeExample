@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:PowerUserMode.Wpf.Questionaire.Shell"
              xmlns:app="clr-namespace:PowerUserMode.Wpf"
              xmlns:prism="http://prismlibrary.com/"
+             xmlns:core="clr-namespace:PowerUserMode.Core;assembly=PowerUserMode.Core"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -22,6 +23,6 @@
             <Button Command="{Binding AdvancePreviousCommand}" Content="Previous" HorizontalAlignment="Left" />
             <Button Command="{Binding AdvanceNextCommand}" Content="Next" HorizontalAlignment="Right" />
         </Grid>
-        <ContentControl prism:RegionManager.RegionName="{x:Static app:KnownRegions.Questions}" />
+        <ContentControl prism:RegionManager.RegionName="{x:Static core:KnownRegions.Questions}" />
     </DockPanel>
 </UserControl>
